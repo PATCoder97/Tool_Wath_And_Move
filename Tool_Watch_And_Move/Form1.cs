@@ -23,6 +23,7 @@ namespace Tool_Watch_And_Move
 
         private void Form1_Load(object sender, EventArgs e)
         {
+        //Test ha
             string filePath = Application.StartupPath + "\\Temp.txt";
 
             if (File.Exists(filePath))
