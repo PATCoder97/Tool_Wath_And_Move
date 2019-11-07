@@ -35,7 +35,7 @@ namespace Tool_Watch_And_Move
             }
             else
             {
-                MessageBox.Show("Thieu file Temp.txt");
+                MessageBox.Show("Thieu file file file Temp.txt");
             }
             fileSystemWatcher1.Path = FromFolder;
             fileSystemWatcher1.Filter = "*.sce*";
