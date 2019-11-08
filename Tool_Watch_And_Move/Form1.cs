@@ -42,8 +42,14 @@ namespace Tool_Watch_And_Move
 
         private void fileSystemWatcher1_Created_1(object sender, FileSystemEventArgs e)
         {
-            listBox1.Items.Add(e.FullPath);
-            File.Copy(e.FullPath, ToFolder + e.Name,true);
+            string DateTimeNow = DateTime.Now.Year.ToString() + "/" +
+                        string.Format("{0:00}", DateTime.Now.Month).ToString() + "/" +
+                        string.Format("{0:00}", DateTime.Now.Day).ToString() + " " +
+                        string.Format("{0:00}", DateTime.Now.Hour).ToString() + ":" +
+                        string.Format("{0:00}", DateTime.Now.Minute).ToString() + ":" +
+                        string.Format("{0:00}", DateTime.Now.Second).ToString();
+            listBox1.Items.Add(DateTimeNow + "____" + e.Name);
+            File.Copy(e.FullPath, ToFolder + e.Name, true);
             listBox1.SelectedIndex = listBox1.Items.Count - 1;
         }
 
