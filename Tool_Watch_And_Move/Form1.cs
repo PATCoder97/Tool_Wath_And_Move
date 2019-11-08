@@ -44,6 +44,7 @@ namespace Tool_Watch_And_Move
         {
             listBox1.Items.Add(e.FullPath);
             File.Copy(e.FullPath, ToFolder + e.Name,true);
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
