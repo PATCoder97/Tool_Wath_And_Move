@@ -1,3 +1,3 @@
-# Tool_Wath_And_Move
-Bộ phận nguyên liệu, Máy lưu động
-Copy file Temp.txt vào Folder Debug sau khi chạy chương trình lần 1
+# Tool Auto Copy
+Phần mềm copy file mới được thêm vào Folder.
+Chỉnh sửa filter bằng Ctrl + T.
