@@ -19,40 +19,37 @@ namespace Tool_Watch_And_Move
         {
             InitializeComponent();
         }
-
-        string FromFolder;
-        string ToFolder;
+        _ini iniTemp = new _ini(Application.StartupPath + "\\Temp.ini");
+        string[] Filter;
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string filePath = Application.StartupPath + "\\Temp.txt";
-
-            if (File.Exists(filePath))
-            {
-                string[] lines;
-                lines = File.ReadAllLines(filePath);
-                FromFolder = lines[0];
-                ToFolder = lines[1];
-            }
-            else
-            {
-                MessageBox.Show("Missing file Temp.txt");
-            }
-            fileSystemWatcher1.Path = FromFolder;
-            fileSystemWatcher1.Filter = "*.sce*";
+            txtFrom.Text = iniTemp.Read("LINK", "from");
+            txtTo.Text = iniTemp.Read("LINK", "to");
+            this.KeyPreview = true;
+            
         }
 
         private void fileSystemWatcher1_Created_1(object sender, FileSystemEventArgs e)
         {
-            string DateTimeNow = DateTime.Now.Year.ToString() + "/" +
+            if (btStart.Text=="STOP")
+            {
+                string DateTimeNow = DateTime.Now.Year.ToString() + "/" +
                         string.Format("{0:00}", DateTime.Now.Month).ToString() + "/" +
                         string.Format("{0:00}", DateTime.Now.Day).ToString() + " " +
                         string.Format("{0:00}", DateTime.Now.Hour).ToString() + ":" +
                         string.Format("{0:00}", DateTime.Now.Minute).ToString() + ":" +
                         string.Format("{0:00}", DateTime.Now.Second).ToString();
-            listBox1.Items.Add(DateTimeNow + "____" + e.Name);
-            File.Copy(e.FullPath, ToFolder + e.Name, true);
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+                for (int i = 0; i < Filter.Length; i++)
+                {
+                    if (e.Name.EndsWith(Filter[i]))
+                    {
+                        listBox1.Items.Add(DateTimeNow + "____" + e.Name);
+                        File.Copy(e.FullPath, txtTo.Text + "\\" + e.Name, true);
+                        listBox1.SelectedIndex = listBox1.Items.Count - 1;
+                    }
+                }
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -61,6 +58,78 @@ namespace Tool_Watch_And_Move
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void btFrom_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+            folderDlg.ShowNewFolderButton = true;
+            // Show the FolderBrowserDialog.  
+            DialogResult result = folderDlg.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                txtFrom.Text = folderDlg.SelectedPath;
+                Environment.SpecialFolder root = folderDlg.RootFolder;
+            }
+        }
+
+        private void btTo_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+            folderDlg.ShowNewFolderButton = true;
+            // Show the FolderBrowserDialog.  
+            DialogResult result = folderDlg.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                txtTo.Text = folderDlg.SelectedPath;
+                Environment.SpecialFolder root = folderDlg.RootFolder;
+            }
+        }
+
+        private void txtFrom_TextChanged(object sender, EventArgs e)
+        {
+            iniTemp.Write("LINK", "from", txtFrom.Text);
+        }
+
+        private void txtTo_TextChanged(object sender, EventArgs e)
+        {
+            iniTemp.Write("LINK", "to", txtTo.Text);
+        }
+
+        private void btStart_Click(object sender, EventArgs e)
+        {
+            Filter = iniTemp.Read("LINK", "filter").Split('/');
+            btStart.Text = btStart.Text ==  "START" ? "STOP":"START";
+            if (btStart.Text=="START")
+            {
+                btStart.BackColor = Color.Lime;
+                txtFrom.Enabled = true;
+                txtTo.Enabled = true;
+                btFrom.Enabled = true;
+                btTo.Enabled = true;
+            }
+            else
+            {
+                btStart.BackColor = Color.Red;
+                txtFrom.Enabled = false;
+                txtTo.Enabled = false;
+                btFrom.Enabled = false;
+                btTo.Enabled = false;
+
+                fileSystemWatcher1.Path = txtFrom.Text;
+            }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtFrom.Enabled != false)
+            {
+                if (e.KeyCode == Keys.T)
+                {
+                    Form2 f = new Form2();
+                    f.ShowDialog();
+                }
             }
         }
     }
