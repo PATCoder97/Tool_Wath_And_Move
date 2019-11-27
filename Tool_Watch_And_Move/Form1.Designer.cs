@@ -58,6 +58,7 @@
             // 
             // txtFrom
             // 
+            this.txtFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtFrom.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFrom.Location = new System.Drawing.Point(12, 12);
             this.txtFrom.Name = "txtFrom";
@@ -67,6 +68,7 @@
             // 
             // txtTo
             // 
+            this.txtTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtTo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTo.Location = new System.Drawing.Point(12, 41);
             this.txtTo.Name = "txtTo";
@@ -76,6 +78,7 @@
             // 
             // btFrom
             // 
+            this.btFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btFrom.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btFrom.Location = new System.Drawing.Point(522, 12);
             this.btFrom.Name = "btFrom";
@@ -87,6 +90,7 @@
             // 
             // btTo
             // 
+            this.btTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btTo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTo.Location = new System.Drawing.Point(522, 41);
             this.btTo.Name = "btTo";
@@ -98,6 +102,7 @@
             // 
             // btStart
             // 
+            this.btStart.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btStart.BackColor = System.Drawing.Color.Lime;
             this.btStart.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btStart.Location = new System.Drawing.Point(623, 12);
@@ -120,6 +125,7 @@
             this.Controls.Add(this.txtFrom);
             this.Controls.Add(this.listBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(730, 150);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tool Auto Copy";

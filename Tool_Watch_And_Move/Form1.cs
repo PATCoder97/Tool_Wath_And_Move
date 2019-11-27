@@ -8,9 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//Test từ máy FHS
-//Test 2
-//Test 3
+
 namespace Tool_Watch_And_Move
 {
     public partial class Form1 : Form
@@ -40,13 +38,22 @@ namespace Tool_Watch_And_Move
                         string.Format("{0:00}", DateTime.Now.Hour).ToString() + ":" +
                         string.Format("{0:00}", DateTime.Now.Minute).ToString() + ":" +
                         string.Format("{0:00}", DateTime.Now.Second).ToString();
-                for (int i = 0; i < Filter.Length; i++)
+                if (Filter[0]=="ALL")
                 {
-                    if (e.Name.EndsWith(Filter[i]))
+                    listBox1.Items.Add(DateTimeNow + ".........." + e.Name);
+                    File.Copy(e.FullPath, txtTo.Text + "\\" + e.Name, true);
+                    listBox1.SelectedIndex = listBox1.Items.Count - 1;
+                }
+                else
+                {
+                    for (int i = 0; i < Filter.Length; i++)
                     {
-                        listBox1.Items.Add(DateTimeNow + "____" + e.Name);
-                        File.Copy(e.FullPath, txtTo.Text + "\\" + e.Name, true);
-                        listBox1.SelectedIndex = listBox1.Items.Count - 1;
+                        if (e.Name.EndsWith(Filter[i]))
+                        {
+                            listBox1.Items.Add(DateTimeNow + "____" + e.Name);
+                            File.Copy(e.FullPath, txtTo.Text + "\\" + e.Name, true);
+                            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+                        }
                     }
                 }
             }
@@ -101,6 +108,7 @@ namespace Tool_Watch_And_Move
         {
             Filter = iniTemp.Read("LINK", "filter").Split('/');
             btStart.Text = btStart.Text ==  "START" ? "STOP":"START";
+
             if (btStart.Text=="START")
             {
                 btStart.BackColor = Color.Lime;
