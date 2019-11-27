@@ -47,7 +47,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 69);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(690, 264);
+            this.listBox1.Size = new System.Drawing.Size(355, 30);
             this.listBox1.TabIndex = 1;
             // 
             // fileSystemWatcher1
@@ -58,29 +58,31 @@
             // 
             // txtFrom
             // 
-            this.txtFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtFrom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFrom.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFrom.Location = new System.Drawing.Point(12, 12);
             this.txtFrom.Name = "txtFrom";
-            this.txtFrom.Size = new System.Drawing.Size(504, 22);
+            this.txtFrom.Size = new System.Drawing.Size(190, 22);
             this.txtFrom.TabIndex = 2;
             this.txtFrom.TextChanged += new System.EventHandler(this.txtFrom_TextChanged);
             // 
             // txtTo
             // 
-            this.txtTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTo.Location = new System.Drawing.Point(12, 41);
             this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(504, 22);
+            this.txtTo.Size = new System.Drawing.Size(190, 22);
             this.txtTo.TabIndex = 4;
             this.txtTo.TextChanged += new System.EventHandler(this.txtTo_TextChanged);
             // 
             // btFrom
             // 
-            this.btFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btFrom.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btFrom.Location = new System.Drawing.Point(522, 12);
+            this.btFrom.Location = new System.Drawing.Point(208, 11);
             this.btFrom.Name = "btFrom";
             this.btFrom.Size = new System.Drawing.Size(74, 22);
             this.btFrom.TabIndex = 5;
@@ -90,9 +92,9 @@
             // 
             // btTo
             // 
-            this.btTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btTo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTo.Location = new System.Drawing.Point(522, 41);
+            this.btTo.Location = new System.Drawing.Point(208, 40);
             this.btTo.Name = "btTo";
             this.btTo.Size = new System.Drawing.Size(74, 22);
             this.btTo.TabIndex = 6;
@@ -102,10 +104,10 @@
             // 
             // btStart
             // 
-            this.btStart.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btStart.BackColor = System.Drawing.Color.Lime;
             this.btStart.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btStart.Location = new System.Drawing.Point(623, 12);
+            this.btStart.Location = new System.Drawing.Point(288, 11);
             this.btStart.Name = "btStart";
             this.btStart.Size = new System.Drawing.Size(79, 51);
             this.btStart.TabIndex = 7;
@@ -117,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 345);
+            this.ClientSize = new System.Drawing.Size(377, 111);
             this.Controls.Add(this.btStart);
             this.Controls.Add(this.btTo);
             this.Controls.Add(this.btFrom);
@@ -125,7 +127,7 @@
             this.Controls.Add(this.txtFrom);
             this.Controls.Add(this.listBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(730, 150);
+            this.MinimumSize = new System.Drawing.Size(393, 150);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tool Auto Copy";
